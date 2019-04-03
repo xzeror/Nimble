@@ -5,6 +5,7 @@ import Foundation
 ///
 /// You can pass a closure to do any arbitrary custom matching
 /// to the value inside result. The closure only gets called when result is success.
+#if swift(>=5)
 @available(swift 5)
 public func beSuccess<T>(test: ((T) -> Void)? = nil) -> Predicate<Result<T, Error>> {
     return Predicate.define("be <success>") { expression, message in
@@ -33,3 +34,4 @@ public func beFailure<T>(test: ((Error) -> Void)? = nil) -> Predicate<Result<T, 
         return PredicateResult(status: .matches, message: message)
     }
 }
+#endif
