@@ -353,7 +353,7 @@ extension BeSuccessTest {
         ("testExpectationFailureMessage", testExpectationFailureMessage),
     ]
     #else
-    static let __allTests: [(String, (BeSuccessTest) -> () -> ())] = []
+    static let __allTests: [(String, (BeSuccessTest) -> () -> Void)] = []
     #endif
 }
 
@@ -366,7 +366,7 @@ extension BeFailureTest {
         ("testExpectationFailureMessage", testExpectationFailureMessage),
     ]
     #else
-    static let __allTests: [(String, (BeFailureTest) -> () -> ())] = []
+    static let __allTests: [(String, (BeFailureTest) -> () -> Void)] = []
     #endif
 }
 
@@ -409,7 +409,7 @@ public func __allTests() -> [XCTestCaseEntry] {
         testCase(ToSucceedTest.__allTests),
         testCase(UserDescriptionTest.__allTests),
         testCase(BeSuccessTest.__allTests),
-        testCase(BeFailureTest.__allTests),
+        testCase(BeFailureTest.__allTests)
     ]
 }
 #endif
