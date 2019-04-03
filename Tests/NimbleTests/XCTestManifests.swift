@@ -344,6 +344,32 @@ extension UserDescriptionTest {
     ]
 }
 
+extension BeSuccessTest {
+    #if swift(>=5)
+    static let __allTests = [
+        ("testPositiveMatch", testPositiveMatch),
+        ("testNegativeMatch", testNegativeMatch),
+        ("testPositiveMatchWithValueTesting", testPositiveMatchWithValueTesting),
+        ("testExpectationFailureMessage", testExpectationFailureMessage),
+    ]
+    #else
+    static let __allTests: [(String, (BeSuccessTest) -> () -> ())] = []
+    #endif
+}
+
+extension BeFailureTest {
+    #if swift(>=5)
+    static let __allTests = [
+        ("testPositiveMatch", testPositiveMatch),
+        ("testNegativeMatch", testNegativeMatch),
+        ("testPositiveMatchWithValueTesting", testPositiveMatchWithValueTesting),
+        ("testExpectationFailureMessage", testExpectationFailureMessage),
+    ]
+    #else
+    static let __allTests: [(String, (BeFailureTest) -> () -> ())] = []
+    #endif
+}
+
 #if !os(macOS)
 public func __allTests() -> [XCTestCaseEntry] {
     return [
@@ -382,6 +408,8 @@ public func __allTests() -> [XCTestCaseEntry] {
         testCase(ThrowErrorTest.__allTests),
         testCase(ToSucceedTest.__allTests),
         testCase(UserDescriptionTest.__allTests),
+        testCase(BeSuccessTest.__allTests),
+        testCase(BeFailureTest.__allTests),
     ]
 }
 #endif

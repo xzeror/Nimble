@@ -5,8 +5,8 @@ private struct StubError: Error, CustomDebugStringConvertible {
     let debugDescription = "StubError"
 }
 
-#if swift(>=5)
 final class BeSuccessTest: XCTestCase, XCTestCaseProvider {
+    #if swift(>=5)
     func testPositiveMatch() {
         let successfulResult: Result<Int, Error> = .success(1)
         expect(successfulResult).to(beSuccess())
@@ -31,9 +31,11 @@ final class BeSuccessTest: XCTestCase, XCTestCaseProvider {
             expect(failureResult).to(beSuccess())
         }
     }
+    #endif
 }
 
 final class BeFailureTest: XCTestCase, XCTestCaseProvider {
+    #if swift(>=5)
     func testPositiveMatch() {
         let failureResult: Result<Int, Error> = .failure(StubError())
         expect(failureResult).to(beFailure())
@@ -57,5 +59,5 @@ final class BeFailureTest: XCTestCase, XCTestCaseProvider {
             expect(successfulResult).to(beFailure())
         }
     }
+    #endif
 }
-#endif
