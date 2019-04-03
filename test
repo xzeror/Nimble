@@ -86,10 +86,12 @@ function test_swiftpm {
     if [ -d .build ]; then
         run swift package clean
     fi
+    run swift test --generate-linuxmain
     run swift build && swift test
 }
 
 function test_swiftpm_docker {
+    run swift test --generate-linuxmain
     run docker build -t nimble-tests -f Dockerfile.test --no-cache .
     run docker run -it --privileged=true nimble-tests
 }
