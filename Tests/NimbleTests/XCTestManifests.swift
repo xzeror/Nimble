@@ -353,7 +353,9 @@ extension BeSuccessTest {
         ("testExpectationFailureMessage", testExpectationFailureMessage),
     ]
     #else
-    static let __allTests: [(String, (BeSuccessTest) -> () -> Void)] = []
+    static let __allTests: [(String, (BeSuccessTest) -> () -> Void)] = [
+        ("testStub", testStub),
+    ]
     #endif
 }
 
@@ -366,7 +368,9 @@ extension BeFailureTest {
         ("testExpectationFailureMessage", testExpectationFailureMessage),
     ]
     #else
-    static let __allTests: [(String, (BeFailureTest) -> () -> Void)] = []
+    static let __allTests: [(String, (BeFailureTest) -> () -> Void)] = [
+        ("testStub", testStub),
+    ]
     #endif
 }
 

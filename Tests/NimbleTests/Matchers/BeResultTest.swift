@@ -31,6 +31,8 @@ final class BeSuccessTest: XCTestCase, XCTestCaseProvider {
             expect(failureResult).to(beSuccess())
         }
     }
+    #else
+    func testStub() { }
     #endif
 }
 
@@ -59,5 +61,7 @@ final class BeFailureTest: XCTestCase, XCTestCaseProvider {
             expect(successfulResult).to(beFailure())
         }
     }
+    #else
+    func testStub() { }
     #endif
 }
